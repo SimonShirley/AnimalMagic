@@ -6,4 +6,12 @@
 
 
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnimalMagic.Data\AnimalMagic.Data.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

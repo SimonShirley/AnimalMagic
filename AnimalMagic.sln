@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalMagic.Web", "AnimalMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalMagic.Data", "AnimalMagic.Data\AnimalMagic.Data.csproj", "{13879C3F-8993-4E60-9512-628FD42FBE22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalMagic.Test", "AnimalMagic.Test\AnimalMagic.Test.csproj", "{0E053282-AA7F-4DDE-91B7-E5AED4CCC683}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{13879C3F-8993-4E60-9512-628FD42FBE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13879C3F-8993-4E60-9512-628FD42FBE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13879C3F-8993-4E60-9512-628FD42FBE22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E053282-AA7F-4DDE-91B7-E5AED4CCC683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E053282-AA7F-4DDE-91B7-E5AED4CCC683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E053282-AA7F-4DDE-91B7-E5AED4CCC683}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E053282-AA7F-4DDE-91B7-E5AED4CCC683}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

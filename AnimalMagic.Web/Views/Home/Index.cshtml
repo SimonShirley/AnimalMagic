@@ -22,7 +22,7 @@
             @foreach (var animal in Model)
             {
                 <tr>
-                    <td>@animal.GetType().ToString()</td>
+                    <td>@animal.GetType().Name</td>
                     <td>@animal.Name</td>
                     <td>@animal.Sound</td>
                 </tr>

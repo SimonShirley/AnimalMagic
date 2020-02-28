@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AnimalMagic.Business.Interfaces;
 using AnimalMagic.Entity;
 
 namespace AnimalMagic.Business
 {
-    public class AnimalManager
+    public class AnimalManager : IAnimalManager
     {
         public ICollection<Animal> Animals { get; private set; }
 

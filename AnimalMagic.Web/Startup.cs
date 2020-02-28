@@ -11,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using AnimalMagic.Business;
+using AnimalMagic.Business.Interfaces;
 
 namespace AnimalMagic.Web
 {
@@ -30,6 +32,11 @@ namespace AnimalMagic.Web
             services.AddDbContext<AnimalMagicDbContext>(options =>
                 options.UseInMemoryDatabase("animalMagicDb")
             );
+
+            services.AddScoped<IAnimalManager, AnimalManager>();
+            services.AddScoped<ICatManager, CatManager>();
+            services.AddScoped<IDogManager, DogManager>();
+            services.AddScoped<IParrotManager, ParrotManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

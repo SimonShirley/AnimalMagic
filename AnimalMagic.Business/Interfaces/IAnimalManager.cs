@@ -5,7 +5,7 @@ namespace AnimalMagic.Business.Interfaces
 {
     public interface IAnimalManager
     {
-        ICollection<Animal> Animals { get; }
+        IEnumerable<Animal> Animals { get; }
 
         IEnumerable<Dog> GetDogsFromAnimalCollection();
     }

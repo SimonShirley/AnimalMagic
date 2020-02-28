@@ -1,8 +1,32 @@
-﻿@{
+﻿@model IEnumerable<AnimalMagic.Entity.Animal>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<br />
+
+<div class="text-center">
+    <table class="table">
+        <thead>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Sound</th>
+        </thead>
+        <tbody>
+            @foreach (var animal in Model)
+            {
+                <tr>
+                    <td>@animal.GetType().ToString()</td>
+                    <td>@animal.Name</td>
+                    <td>@animal.Sound</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

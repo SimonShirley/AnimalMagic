@@ -8,7 +8,7 @@ namespace AnimalMagic.Business
 {
     public class AnimalManager : IAnimalManager
     {
-        public ICollection<Animal> Animals { get; private set; }
+        public IEnumerable<Animal> Animals { get; private set; }
 
         public AnimalManager()
         {
@@ -25,6 +25,8 @@ namespace AnimalMagic.Business
             animalCollection.AddRange(catManager.Cats);
             animalCollection.AddRange(dogManager.Dogs);
             animalCollection.AddRange(parrotManager.Parrots);
+
+            Animals = animalCollection;
         }
 
         public IEnumerable<Dog> GetDogsFromAnimalCollection()

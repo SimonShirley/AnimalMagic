@@ -13,5 +13,8 @@
     <ProjectReference Include="..\AnimalMagic.Data\AnimalMagic.Data.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\AnimalMagic.Business\AnimalMagic.Business.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

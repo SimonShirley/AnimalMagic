@@ -8,6 +8,7 @@ namespace AnimalMagic.Entity
         public Parrot()
         {
             Claws = 6;
+            Sound = "Squawk";
         }
     }
 }

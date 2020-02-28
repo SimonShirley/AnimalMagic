@@ -5,6 +5,9 @@ namespace AnimalMagic.Entity
 {
     public class Parrot : Bird, IParrot
     {
-
+        public Parrot()
+        {
+            Claws = 6;
+        }
     }
 }

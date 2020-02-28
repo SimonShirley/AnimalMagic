@@ -5,6 +5,10 @@ namespace AnimalMagic.Entity
 {
     public class Dog : Mammal, IDog
     {
-     
+        public Dog()
+        {
+            Legs = 4;
+            Sound = "Woof";
+        }
     }
 }

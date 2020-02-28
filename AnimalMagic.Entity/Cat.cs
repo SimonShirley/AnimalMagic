@@ -5,6 +5,10 @@ namespace AnimalMagic.Entity
 {
     public class Cat : Mammal, ICat
     {
-
+        public Cat()
+        {
+            Sound = "Meow";
+            Legs = 4;
+        }
     }
 }

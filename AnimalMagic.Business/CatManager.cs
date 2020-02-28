@@ -17,9 +17,9 @@ namespace AnimalMagic.Business
         private void InitialiseCatList()
         {
             Cats = new List<Cat> {
-                new Cat("Shanie"),
-                new Cat("Flux", 3),
-                new Cat("Nalu")
+                new Cat { Name = "Shanie" },
+                new Cat { Name = "Flux", Legs = 3 },
+                new Cat { Name = "Nalu" }
             };
         }
 

@@ -18,9 +18,9 @@ namespace AnimalMagic.Business
         {
             Parrots = new List<Parrot>
             {
-                new Parrot("Bluey"),
-                new Parrot("George"),
-                new Parrot("Charlie")
+                new Parrot { Name = "Bluey" },
+                new Parrot { Name = "George" },
+                new Parrot { Name = "Charlie" }
             };
         }
 

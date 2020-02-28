@@ -17,9 +17,9 @@ namespace AnimalMagic.Business
         private void InitialiseDogList()
         {
             Dogs = new List<Dog> {
-                new Dog("Duke"),
-                new Dog("Shilo"),
-                new Dog("Blazer")
+                new Dog { Name = "Duke" },
+                new Dog { Name = "Shilo" },
+                new Dog { Name = "Blazer" }
             };
         }
 

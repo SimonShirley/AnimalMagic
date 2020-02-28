@@ -69,5 +69,19 @@ namespace AnimalMagic.Test
             var parrot = new Parrot { Name = "Bluey", Claws = 8 };
             Assert.IsInstanceOfType(parrot, typeof(Bird));
         }
+
+        [TestMethod]
+        public void setDefaultCatSound()
+        {
+            var cat = new Cat { Sound = "Woof" };
+            Assert.AreEqual(cat.Sound, "Woof");
+        }
+
+        [TestMethod]
+        public void overiddenCatSoundIsNotDefaultTest()
+        {
+            var cat = new Cat { Sound = "Woof" };
+            Assert.AreNotEqual(cat.Sound, "Meow");
+        }
     }
 }

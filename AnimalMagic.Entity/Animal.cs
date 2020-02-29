@@ -9,6 +9,8 @@ namespace AnimalMagic.Entity
     {
         [DataMember]
         public string Name { get; set; }
+
+        [DataMember]
         public string Sound { get; set; }
     }
 }

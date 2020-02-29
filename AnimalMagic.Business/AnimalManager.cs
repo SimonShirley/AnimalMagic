@@ -3,26 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using AnimalMagic.Business.Interfaces;
 using AnimalMagic.Entity;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace AnimalMagic.Business
 {
     public class AnimalManager : IAnimalManager
     {
-        public ICollection<Animal> Animals { get; set; }
+        private readonly IMemoryCache _cache;
 
-        public AnimalManager()
-        {
-            InitialiseAnimalCollection();
+        public ICollection<Animal> Animals {
+            get
+            {
+                _cache.TryGetValue("AnimalCollection", out ICollection<Animal> animals);
+
+                if (animals == null)
+                {
+                    animals = InitialiseAnimalCollection();
+                    _cache.Set("AnimalCollection", animals, DateTime.Today.AddDays(1));
+                }
+
+                return animals;
+            }
         }
 
-        private void InitialiseAnimalCollection()
+        public AnimalManager(IMemoryCache cache)
+        {
+            _cache = cache;
+        }
+
+        private ICollection<Animal> InitialiseAnimalCollection()
         {
             var animalCollection = new List<Animal>();
             animalCollection.AddRange(GetCats());
             animalCollection.AddRange(GetDogs());
             animalCollection.AddRange(GetParrots());
 
-            Animals = animalCollection;
+            return animalCollection;
         }
 
         private static IEnumerable<Cat> GetCats() => new List<Cat> {

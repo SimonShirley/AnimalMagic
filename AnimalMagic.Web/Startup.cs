@@ -29,11 +29,13 @@ namespace AnimalMagic.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<AnimalMagicDbContext>(options =>
+            services.AddDbContextPool<AnimalMagicDbContext>(options =>
                 options.UseInMemoryDatabase("animalMagicDb")
             );
 
-            services.AddSingleton<IAnimalManager, AnimalManager>();
+            services.AddMemoryCache();
+
+            services.AddScoped<IAnimalManager, AnimalManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

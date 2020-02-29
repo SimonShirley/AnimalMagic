@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AnimalMagic.Entity.Cat>
+
+@{
+    bool catAdded = TempData["AnimalAdded"] == null ? false : (bool)TempData["AnimalAdded"];
+
+    if (catAdded)
+    {
+        <div class="row">
+            <div class="alert alert-success col">
+                <p>New Cat Added</p>
+            </div>
+        </div>
+    }
+}
+
+<div class="row">
+    <div class="col text-center">
+        <table class="table">
+            <thead>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Legs</th>
+            <th>Sound</th>
+            </thead>
+            <tbody>
+                @foreach (var cat in Model)
+                {
+                    <tr>
+                        <td>@cat.GetType().Name</td>
+                        <td>@cat.Name</td>
+                        <td>@cat.Legs</td>
+                        <td>@cat.Sound</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-s12 col-m6 col-l4">
+        <a class="btn btn-primary" asp-controller="Cats" asp-action="Add">Add New Cat</a>
+    </div>
+</div>

@@ -1,13 +1,13 @@
-﻿@model IEnumerable<AnimalMagic.Entity.Dog>
+﻿@model IEnumerable<AnimalMagic.Entity.Parrot>
 
 @{
-    bool dogAdded = TempData["AnimalAdded"] == null ? false : (bool)TempData["AnimalAdded"];
+    bool parrotAdded = TempData["AnimalAdded"] == null ? false : (bool)TempData["AnimalAdded"];
 
-    if (dogAdded)
+    if (parrotAdded)
     {
         <div class="row">
             <div class="alert alert-success">
-                <p>New Dog Added</p>
+                <p>New Parrot Added</p>
             </div>
         </div>
     }
@@ -19,17 +19,17 @@
             <thead>
                 <th>Type</th>
                 <th>Name</th>
-                <th>Legs</th>
+                <th>Claws</th>
                 <th>Sound</th>
             </thead>
             <tbody>
-                @foreach (var dog in Model)
+                @foreach (var parrot in Model)
                 {
                     <tr>
-                        <td>@dog.GetType().Name</td>
-                        <td>@dog.Name</td>
-                        <td>@dog.Legs</td>
-                        <td>@dog.Sound</td>
+                        <td>@parrot.GetType().Name</td>
+                        <td>@parrot.Name</td>
+                        <td>@parrot.Claws</td>
+                        <td>@parrot.Sound</td>
                     </tr>
                 }
             </tbody>
@@ -39,6 +39,6 @@
 
 <div class="row">
     <div class="col-s12 col-m6 col-l4">
-        <a class="btn btn-primary" asp-controller="Dogs" asp-action="Add">Add New Dog</a>
+        <a class="btn btn-primary" asp-controller="Parrots" asp-action="Add">Add New Parrot</a>
     </div>
 </div>

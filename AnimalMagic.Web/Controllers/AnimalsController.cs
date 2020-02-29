@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AnimalMagic.Business.Interfaces;
 using AnimalMagic.Entity;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,7 @@ namespace AnimalMagic.Web.Controllers
 
         public IActionResult List()
         {
-            return View(_animalManager.Animals);
+            return View(_animalManager.Animals.OrderBy(a => a.GetType().Name).ThenBy(a => a.Name).ToList());
         }
 
         // Return list of animals as Json - This might be cheating!!

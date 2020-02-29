@@ -1,0 +1,23 @@
+﻿@model IEnumerable<AnimalMagic.Entity.Animal>
+@{
+}
+
+<div class="text-center">
+    <table class="table">
+        <thead>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Sound</th>
+        </thead>
+        <tbody>
+            @foreach (var animal in Model)
+            {
+                <tr>
+                    <td>@animal.GetType().Name</td>
+                    <td>@animal.Name</td>
+                    <td>@animal.Sound</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

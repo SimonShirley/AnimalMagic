@@ -15,27 +15,21 @@ namespace AnimalMagic.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IAnimalManager _animalManager;
 
-        public HomeController(ILogger<HomeController> logger, IAnimalManager animalManager)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _animalManager = animalManager;
         }
 
         public IActionResult Index()
         {
-            return View(_animalManager.Animals);
+            return View();
         }
 
         public IActionResult Privacy()
         {
             return View();
         }
-
-        // Return list of animals as Json - This might be cheating!!
-        [HttpGet]
-        public IEnumerable<Animal> GetAnimals() => _animalManager.Animals;
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

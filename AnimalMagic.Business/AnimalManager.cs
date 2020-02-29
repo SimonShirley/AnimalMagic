@@ -8,7 +8,7 @@ namespace AnimalMagic.Business
 {
     public class AnimalManager : IAnimalManager
     {
-        public IEnumerable<Animal> Animals { get; private set; }
+        public ICollection<Animal> Animals { get; set; }
 
         public AnimalManager()
         {
@@ -17,21 +17,31 @@ namespace AnimalMagic.Business
 
         private void InitialiseAnimalCollection()
         {
-            var catManager = new CatManager();
-            var dogManager = new DogManager();
-            var parrotManager = new ParrotManager();
-
             var animalCollection = new List<Animal>();
-            animalCollection.AddRange(catManager.Cats);
-            animalCollection.AddRange(dogManager.Dogs);
-            animalCollection.AddRange(parrotManager.Parrots);
+            animalCollection.AddRange(GetCats());
+            animalCollection.AddRange(GetDogs());
+            animalCollection.AddRange(GetParrots());
 
             Animals = animalCollection;
         }
 
-        public IEnumerable<Dog> GetDogsFromAnimalCollection()
+        private static IEnumerable<Cat> GetCats() => new List<Cat> {
+            new Cat { Name = "Shanie" },
+            new Cat { Name = "Flux", Legs = 3 },
+            new Cat { Name = "Nalu" }
+        };
+
+        private static IEnumerable<Dog> GetDogs() => new List<Dog> {
+            new Dog { Name = "Duke" },
+            new Dog { Name = "Shilo" },
+            new Dog { Name = "Blazer" }
+        };
+
+        private static IEnumerable<Parrot> GetParrots() => new List<Parrot>
         {
-            return Animals.Where(a => a is Dog).Cast<Dog>();
-        }
+            new Parrot { Name = "Bluey" },
+            new Parrot { Name = "George" },
+            new Parrot { Name = "Charlie" }
+        };
     }
 }

@@ -1,13 +1,11 @@
 ﻿@model IEnumerable<AnimalMagic.Entity.Animal>
-@{
-}
 
 <div class="text-center">
     <table class="table">
         <thead>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Sound</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Sound</th>
         </thead>
         <tbody>
             @foreach (var animal in Model)
@@ -20,4 +18,10 @@
             }
         </tbody>
     </table>
+</div>
+
+<div>
+    <a class="btn btn-primary" asp-controller="Dogs" asp-action="Add">Add New Dog</a>
+    <a class="btn btn-primary" asp-controller="Cats" asp-action="Add">Add New Cat</a>
+    <a class="btn btn-primary" asp-controller="Parrots" asp-action="Add">Add New Parrot</a>
 </div>

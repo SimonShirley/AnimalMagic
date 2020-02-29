@@ -33,10 +33,7 @@ namespace AnimalMagic.Web
                 options.UseInMemoryDatabase("animalMagicDb")
             );
 
-            services.AddScoped<IAnimalManager, AnimalManager>();
-            services.AddScoped<ICatManager, CatManager>();
-            services.AddScoped<IDogManager, DogManager>();
-            services.AddScoped<IParrotManager, ParrotManager>();
+            services.AddSingleton<IAnimalManager, AnimalManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

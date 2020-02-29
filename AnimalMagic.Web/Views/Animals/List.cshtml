@@ -20,8 +20,16 @@
     </table>
 </div>
 
-<div>
-    <a class="btn btn-primary" asp-controller="Dogs" asp-action="Add">Add New Dog</a>
-    <a class="btn btn-primary" asp-controller="Cats" asp-action="Add">Add New Cat</a>
-    <a class="btn btn-primary" asp-controller="Parrots" asp-action="Add">Add New Parrot</a>
+<div class="row">
+    <div class="col-12 mb-2">
+        <a class="btn btn-primary" asp-controller="Dogs" asp-action="Add">Add New Dog</a>
+        <a class="btn btn-primary" asp-controller="Cats" asp-action="Add">Add New Cat</a>
+        <a class="btn btn-primary" asp-controller="Parrots" asp-action="Add">Add New Parrot</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 mb-2">
+        <a class="btn btn-primary" asp-action="GetAnimals">Get JSON</a>
+    </div>
 </div>

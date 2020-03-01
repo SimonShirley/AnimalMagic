@@ -137,9 +137,15 @@
 
     <div class="row">
         <div class="col">
-            <p>If you'd rather view the animals in an exportable format, for use with other data progams, why not download the data feed?</p>
-            <a class="btn btn-primary" asp-action="GetAnimals">Get JSON</a>
-        </div>
+            <p>
+                If you'd rather view the animals in an exportable format, for use with other data progams, why not download
+                one of the data feeds?
+            </p>
+
+            <div class="btn-group" role="group">
+                <a class="btn btn-primary mr-2" asp-action="GetAnimals">Get Base JSON</a>
+                <a class="btn btn-primary" asp-action="GetCategorisedAnimals">Get Categorised JSON</a>
+            </div>
     </div>
 </div>
 

@@ -29,5 +29,8 @@ namespace AnimalMagic.Web.Controllers
         // Return list of animals as Json - This might be cheating!!
         [HttpGet]
         public IEnumerable<Animal> GetAnimals() => _animalManager.Animals;
+
+        [HttpGet]
+        public IDictionary<string, object> GetCategorisedAnimals() => _animalManager.GetCategorisedAnimals();
     }
 }

@@ -6,5 +6,7 @@ namespace AnimalMagic.Business.Interfaces
     public interface IAnimalManager
     {
         ICollection<Animal> Animals { get; }
+
+        IDictionary<string, object> GetCategorisedAnimals();
     }
 }

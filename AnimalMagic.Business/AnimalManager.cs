@@ -59,5 +59,39 @@ namespace AnimalMagic.Business
             new Parrot { Id = 8, Name = "George" },
             new Parrot { Id = 9, Name = "Charlie" }
         };
+
+        public IDictionary<string, object> GetCategorisedAnimals()
+        {
+            var animalCollection = new Dictionary<string, object>();
+
+            animalCollection.Add("Cats", GetCats().Select(c => new
+            {
+                c.Id,
+                c.Name,
+                c.Legs,
+                c.Sound,
+                Type = c.GetType().Name
+            }));
+
+            animalCollection.Add("Dogs", GetDogs().Select(d => new
+            {
+                d.Id,
+                d.Name,
+                d.Legs,
+                d.Sound,
+                Type = d.GetType().Name
+            }));
+
+            animalCollection.Add("Parrots", GetParrots().Select(p => new
+            {
+                p.Id,
+                p.Name,
+                p.Claws,
+                p.Sound,
+                Type = p.GetType().Name
+            }));
+            
+            return animalCollection;
+        }
     }
 }

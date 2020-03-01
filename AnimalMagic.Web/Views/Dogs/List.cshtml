@@ -12,34 +12,74 @@
     }
 }
 
-<div class="row">
-    <div class="col text-center">
-        <table class="table">
-            <thead>
-            <th>Id</th>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Legs</th>
-            <th>Sound</th>
-            </thead>
-            <tbody>
-                @foreach (var dog in Model)
-                {
-                    <tr>
-                        <td>@dog.Id</td>
-                        <td>@dog.GetType().Name</td>
-                        <td>@dog.Name</td>
-                        <td>@dog.Legs</td>
-                        <td>@dog.Sound</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+@section Stylesheets
+{
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <table class="table">
+                <thead>
+                    <th>Id</th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Legs</th>
+                    <th>Sound</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    @foreach (var dog in Model)
+                    {
+                        <tr>
+                            <td>@dog.Id</td>
+                            <td>@dog.GetType().Name</td>
+                            <td>@dog.Name</td>
+                            <td>@dog.Legs</td>
+                            <td>@dog.Sound</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a asp-controller="Dogs" asp-action="Edit" asp-route-id="@dog.Id" class="mr-2">
+                                        <button type="button" class="btn btn-secondary btn-sm">
+                                            <span class="glyphicon glyphicon-pencil"></span> Edit
+                                        </button>
+                                    </a>
+                                    <form method="post" asp-controller="Dogs" asp-action="Delete" class="deleteFormLink">
+                                        <input type="hidden" name="Id" value="@dog.Id" />
+                                        <button type="submit" class="btn btn-secondary btn-sm">
+                                            <span class="glyphicon glyphicon-trashcan"></span> Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="btn-group">
+                <a class="btn btn-primary" asp-controller="Dogs" asp-action="Add">Add New Dog</a>
+                <a class="btn btn-secondary" asp-controller="Animals" asp-action="List">View All Animals</a>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-s12 col-m6 col-l4">
-        <a class="btn btn-primary" asp-controller="Dogs" asp-action="Add">Add New Dog</a>
-    </div>
-</div>
+@section Scripts {
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#animalListTable").DataTable();
+        });
+
+        $(".deleteFormLink").on("submit", function () {
+            return confirm("Confirm Delete?");
+        });
+    </script>
+}

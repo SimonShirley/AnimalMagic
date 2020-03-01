@@ -24,8 +24,8 @@ namespace AnimalMagic.Web.Controllers
 
         public IActionResult List()
         {
-            List<Parrot> dogCollection = _animalManager.Animals.Where(a => a is Parrot).Cast<Parrot>().OrderBy(p => p.Name).ToList();
-            return View(dogCollection);
+            List<Parrot> parrotCollection = _animalManager.Animals.Where(a => a is Parrot).Cast<Parrot>().OrderBy(p => p.Name).ToList();
+            return View(parrotCollection);
         }
 
         [HttpPost]

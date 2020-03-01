@@ -76,5 +76,15 @@ namespace AnimalMagic.Web.Controllers
 
             return View(currentCat);
         }
+
+        [HttpDelete]
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            if (_animalManager.Animals.Single(a => a.Id == id) is Cat cat)
+                _animalManager.Animals.Remove(cat);
+
+            return RedirectToAction(nameof(List));
+        }
     }
 }

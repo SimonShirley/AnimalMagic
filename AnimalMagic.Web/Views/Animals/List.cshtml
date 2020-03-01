@@ -23,9 +23,10 @@
         <div class="col text-center">
             <table class="table" id="animalListTable">
                 <thead>
-                <th>Type</th>
-                <th>Name</th>
-                <th>Sound</th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Sound</th>
+                    <th></th>
                 </thead>
                 <tbody>
                     @foreach (var animal in Model)
@@ -34,6 +35,50 @@
                             <td>@animal.GetType().Name</td>
                             <td>@animal.Name</td>
                             <td>@animal.Sound</td>
+                            <td>
+                                @switch (animal.GetType().Name)
+                                {
+                                    case "Cat":
+                                        <a asp-controller="Cats" asp-action="Edit" asp-route-id="@animal.Id">
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-pencil"></span> Edit
+                                            </button>
+                                        </a>
+                                        <form method="post" asp-controller="Cats" asp-action="Delete" class="deleteFormLink">
+                                            <input type="hidden" name="Id" value="@animal.Id" />
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-trashcan"></span> Delete
+                                            </button>
+                                        </form>
+                                        break;
+                                    case "Dog":
+                                        <a asp-controller="Dogs" asp-action="Edit" asp-route-id="@animal.Id">
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-pencil"></span> Edit
+                                            </button>
+                                        </a>
+                                        <form method="post" asp-controller="Dogs" asp-action="Delete" class="deleteFormLink">
+                                            <input type="hidden" name="Id" value="@animal.Id" />
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-trashcan"></span> Delete
+                                            </button>
+                                        </form>
+                                        break;
+                                    case "Parrot":
+                                        <a asp-controller="Parrots" asp-action="Edit" asp-route-id="@animal.Id">
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-pencil"></span> Edit
+                                            </button>
+                                        </a>
+                                        <form method="post" asp-controller="Parrots" asp-action="Delete" class="deleteFormLink">
+                                            <input type="hidden" name="Id" value="@animal.Id" />
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-trashcan"></span> Delete
+                                            </button>
+                                        </form>
+                                        break;
+                                }
+                            </td>
                         </tr>
                     }
                 </tbody>
@@ -77,6 +122,10 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#animalListTable").DataTable();
+        });
+
+        $("deleteFormLink").on("submit", function () {
+            return confirm("Confirm delete");
         });
     </script>
 }

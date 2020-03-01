@@ -42,22 +42,22 @@ namespace AnimalMagic.Business
         }
 
         private static IEnumerable<Cat> GetCats() => new List<Cat> {
-            new Cat { Name = "Shanie" },
-            new Cat { Name = "Flux", Legs = 3 },
-            new Cat { Name = "Nalu" }
+            new Cat { Id = 1, Name = "Shanie" },
+            new Cat { Id = 2, Name = "Flux", Legs = 3 },
+            new Cat { Id = 3, Name = "Nalu" }
         };
 
         private static IEnumerable<Dog> GetDogs() => new List<Dog> {
-            new Dog { Name = "Duke" },
-            new Dog { Name = "Shilo" },
-            new Dog { Name = "Blazer" }
+            new Dog { Id = 4, Name = "Duke" },
+            new Dog { Id = 5, Name = "Shilo" },
+            new Dog { Id = 6, Name = "Blazer" }
         };
 
         private static IEnumerable<Parrot> GetParrots() => new List<Parrot>
         {
-            new Parrot { Name = "Bluey" },
-            new Parrot { Name = "George" },
-            new Parrot { Name = "Charlie" }
+            new Parrot { Id = 7, Name = "Bluey" },
+            new Parrot { Id = 8, Name = "George" },
+            new Parrot { Id = 9, Name = "Charlie" }
         };
     }
 }

@@ -4,6 +4,7 @@
     <div class="col text-center">
         <table class="table">
             <thead>
+                <th>Id</th>
                 <th>Type</th>
                 <th>Name</th>
                 <th>Sound</th>
@@ -12,6 +13,7 @@
                 @foreach (var animal in Model)
                 {
                     <tr>
+                        <td>@animal.Id</td>
                         <td>@animal.GetType().Name</td>
                         <td>@animal.Name</td>
                         <td>@animal.Sound</td>

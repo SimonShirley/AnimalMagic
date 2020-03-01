@@ -17,15 +17,17 @@
     <div class="col text-center">
         <table class="table">
             <thead>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Legs</th>
-            <th>Sound</th>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Legs</th>
+                <th>Sound</th>
             </thead>
             <tbody>
                 @foreach (var cat in Model)
                 {
                     <tr>
+                        <td>@cat.Id</td>
                         <td>@cat.GetType().Name</td>
                         <td>@cat.Name</td>
                         <td>@cat.Legs</td>

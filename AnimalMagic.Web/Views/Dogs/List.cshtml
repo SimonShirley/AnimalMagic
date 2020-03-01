@@ -17,6 +17,7 @@
     <div class="col text-center">
         <table class="table">
             <thead>
+                <th>Id</th>
                 <th>Type</th>
                 <th>Name</th>
                 <th>Legs</th>
@@ -26,6 +27,7 @@
                 @foreach (var dog in Model)
                 {
                     <tr>
+                        <td>@dog.Id</td>
                         <td>@dog.GetType().Name</td>
                         <td>@dog.Name</td>
                         <td>@dog.Legs</td>

@@ -92,5 +92,18 @@ namespace AnimalMagic.Web.Controllers
 
             return RedirectToAction(nameof(List));
         }
+
+        public IActionResult Details(int id)
+        {
+            var cat = _animalManager.Animals.SingleOrDefault(c => c.Id == id && c is Cat);
+
+            if (cat == null)
+            {
+                TempData["ErrorMessage"] = "Invalid Cat Id";
+                return RedirectToAction(nameof(List));
+            }
+
+            return View(cat);
+        }
     }
 }

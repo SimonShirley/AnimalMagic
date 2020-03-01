@@ -40,6 +40,11 @@
                             <td>@parrot.Sound</td>
                             <td>
                                 <div class="btn-group" role="group">
+                                    <a asp-controller="Cats" asp-action="Details" asp-route-id="@parrot.Id" class="mr-2">
+                                        <button type="button" class="btn btn-secondary btn-sm">
+                                            <span class="glyphicon glyphicon-pencil"></span> View
+                                        </button>
+                                    </a>
                                     <a asp-controller="Parrots" asp-action="Edit" asp-route-id="@parrot.Id" class="mr-2">
                                         <button type="button" class="btn btn-secondary btn-sm">
                                             <span class="glyphicon glyphicon-pencil"></span> Edit

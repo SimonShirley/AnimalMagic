@@ -40,11 +40,16 @@
                                 case "Cat":
                                     <td>
                                         <div class="btn-group" role="group">
+                                            <a asp-controller="Cats" asp-action="Details" asp-route-id="@animal.Id" class="mr-2">
+                                                <button type="button" class="btn btn-secondary btn-sm">
+                                                    <span class="glyphicon glyphicon-pencil"></span> View
+                                                </button>
+                                            </a>
                                             <a asp-controller="Cats" asp-action="Edit" asp-route-id="@animal.Id" class="mr-2">
                                                 <button type="button" class="btn btn-secondary btn-sm">
                                                     <span class="glyphicon glyphicon-pencil"></span> Edit
                                                 </button>
-                                            </a>                                       
+                                            </a>
                                             <form method="post" asp-controller="Cats" asp-action="Delete" class="deleteFormLink">
                                                 <input type="hidden" name="Id" value="@animal.Id" />
                                                 <button type="submit" class="btn btn-secondary btn-sm">
@@ -58,6 +63,11 @@
                                 case "Dog":
                                     <td>
                                         <div class="btn-group" role="group">
+                                            <a asp-controller="Dogs" asp-action="Details" asp-route-id="@animal.Id" class="mr-2">
+                                                <button type="button" class="btn btn-secondary btn-sm">
+                                                    <span class="glyphicon glyphicon-pencil"></span> View
+                                                </button>
+                                            </a>
                                             <a asp-controller="Dogs" asp-action="Edit" asp-route-id="@animal.Id" class="mr-2">
                                                 <button type="button" class="btn btn-secondary btn-sm">
                                                     <span class="glyphicon glyphicon-pencil"></span> Edit
@@ -76,6 +86,11 @@
                                 case "Parrot":
                                     <td>
                                         <div class="btn-group" role="group">
+                                            <a asp-controller="Parrots" asp-action="Details" asp-route-id="@animal.Id" class="mr-2">
+                                                <button type="button" class="btn btn-secondary btn-sm">
+                                                    <span class="glyphicon glyphicon-pencil"></span> View
+                                                </button>
+                                            </a>
                                             <a asp-controller="Parrots" asp-action="Edit" asp-route-id="@animal.Id" class="mr-2">
                                                 <button type="button" class="btn btn-secondary btn-sm">
                                                     <span class="glyphicon glyphicon-pencil"></span> Edit

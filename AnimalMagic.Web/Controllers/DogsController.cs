@@ -48,5 +48,35 @@ namespace AnimalMagic.Web.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Edit(Dog newDog)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_animalManager.Animals.FirstOrDefault(d => d.Id == newDog.Id) is Dog currentDog)
+                {
+                    currentDog.Name = newDog.Name;
+                    currentDog.Sound = newDog.Sound;
+                    currentDog.Legs = newDog.Legs;
+                }
+
+                return RedirectToAction(nameof(List));
+            }
+
+            return View(newDog);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            if (!(_animalManager.Animals.FirstOrDefault(d => d.Id == id) is Dog currentDog))
+            {
+                TempData["ErrorMessage"] = "Invalid Dog Id";
+                return RedirectToAction(nameof(List));
+            }
+
+            return View(currentDog);
+        }
     }
 }

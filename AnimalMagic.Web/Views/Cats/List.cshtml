@@ -5,11 +5,14 @@
 
     if (catAdded)
     {
-        <div class="row">
-            <div class="alert alert-success col">
-                <p>New Cat Added</p>
-            </div>
-        </div>
+        <div class="alert alert-success" role="alert">New Cat Added</div>
+    }
+
+    var errorMessage = TempData["ErrorMessage"];
+
+    if (errorMessage != null)
+    {
+        <div class="alert alert-danger" role="alert">@errorMessage</div>
     }
 }
 

@@ -1,0 +1,38 @@
+﻿@model AnimalMagic.Entity.Dog
+
+<div class="row">
+    <div class="col">
+        <form class="form" method="post" asp-action="Edit">
+            <table class="table">
+                <tr>
+                    <td><label asp-for="Name">Name</label></td>
+                    <td>
+                        <input type="text" asp-for="Name" pattern="[A-Za-z]+" />
+                        <span asp-validation-for="Name" class="text-danger"></span> 
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="Legs">Legs</label></td>
+                    <td>
+                        <input type="number" inputmode="numeric" pattern="[0-9]." asp-for="Legs" />
+                        <span asp-validation-for="Legs" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="Sound">Sound</label></td>
+                    <td>
+                        <input type="text" asp-for="Sound" pattern="[A-Za-z]+" />
+                        <span asp-validation-for="Sound" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" class="btn btn-primary" value="Edit" />
+                        <a asp-action="List">Cancel</a>
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" asp-for="Id" />
+        </form>
+    </div>
+</div>

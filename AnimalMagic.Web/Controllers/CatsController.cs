@@ -38,13 +38,43 @@ namespace AnimalMagic.Web.Controllers
                 return RedirectToAction(nameof(List));
             }
 
-            return View();
+            return View(cat);
         }
 
         [HttpGet]
         public IActionResult Add()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Cat newCat)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_animalManager.Animals.FirstOrDefault(c => c.Id == newCat.Id) is Cat currentCat)
+                {
+                    currentCat.Name = newCat.Name;
+                    currentCat.Sound = newCat.Sound;
+                    currentCat.Legs = newCat.Legs;
+                }
+
+                return RedirectToAction(nameof(List));
+            }
+
+            return View(newCat);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            if (!(_animalManager.Animals.FirstOrDefault(c => c.Id == id) is Cat currentCat))
+            {
+                TempData["ErrorMessage"] = "Invalid Cat Id";
+                return RedirectToAction(nameof(List));
+            }
+
+            return View(currentCat);
         }
     }
 }

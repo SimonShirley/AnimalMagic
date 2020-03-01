@@ -5,11 +5,14 @@
 
     if (parrotAdded)
     {
-        <div class="row">
-            <div class="alert alert-success">
-                <p>New Parrot Added</p>
-            </div>
-        </div>
+        <div class="alert alert-success" role="alert">New Parrot Added</div>
+    }
+
+    var errorMessage = TempData["ErrorMessage"];
+
+    if (errorMessage != null)
+    {
+        <div class="alert alert-danger" role="alert">@errorMessage</div>
     }
 }
 

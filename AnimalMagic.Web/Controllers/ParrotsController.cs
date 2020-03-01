@@ -46,5 +46,35 @@ namespace AnimalMagic.Web.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Edit(Parrot newParrot)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_animalManager.Animals.FirstOrDefault(p => p.Id == newParrot.Id) is Parrot currentParrot)
+                {
+                    currentParrot.Name = newParrot.Name;
+                    currentParrot.Sound = newParrot.Sound;
+                    currentParrot.Claws = newParrot.Claws;
+                }
+
+                return RedirectToAction(nameof(List));
+            }
+
+            return View(newParrot);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            if (!(_animalManager.Animals.FirstOrDefault(p => p.Id == id) is Parrot currentParrot))
+            {
+                TempData["ErrorMessage"] = "Invalid Parrot Id";
+                return RedirectToAction(nameof(List));
+            }
+
+            return View(currentParrot);
+        }
     }
 }

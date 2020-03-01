@@ -5,11 +5,14 @@
 
     if (dogAdded)
     {
-        <div class="row">
-            <div class="alert alert-success">
-                <p>New Dog Added</p>
-            </div>
-        </div>
+        <div class="alert alert-success" role="alert">New Dog Added</div>
+    }
+
+    var errorMessage = TempData["ErrorMessage"];
+
+    if (errorMessage != null)
+    {
+        <div class="alert alert-danger" role="alert">@errorMessage</div>
     }
 }
 
@@ -17,11 +20,11 @@
     <div class="col text-center">
         <table class="table">
             <thead>
-                <th>Id</th>
-                <th>Type</th>
-                <th>Name</th>
-                <th>Legs</th>
-                <th>Sound</th>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Legs</th>
+            <th>Sound</th>
             </thead>
             <tbody>
                 @foreach (var dog in Model)

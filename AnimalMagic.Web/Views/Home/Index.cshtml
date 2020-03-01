@@ -2,9 +2,19 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-4">Welcome to AnimalMagic!</h1>
+            <p>AnimalMagic is a virtual online petting zoo for domesticated animals.</p>
+
+            <p>Every year, AnimalMagic supports local zoos in adopting and caring for animals around the world</p>
+
+            <p>Click the button below to find out which animals we're currently looking after.</p>
+
+            <a class="btn btn-primary" asp-action="List" asp-controller="Animals">See the Animals</a>
+        </div>
+    </div>
 </div>
 
 

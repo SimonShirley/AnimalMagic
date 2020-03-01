@@ -1,39 +1,82 @@
 ﻿@model IEnumerable<Animal>
 
-<div class="row">
-    <div class="col text-center">
-        <table class="table">
-            <thead>
-                <th>Id</th>
+@{
+    ViewData["Title"] = "Our Animals";
+}
+
+@section Stylesheets
+{
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Our Animals</h1>
+            <p>At AnimalMagic, we specialise in looking after a whole range of animals, including dogs, cats and parrots.</p>
+
+            <p>Here you can find a list of the animals that we are currently looking after:</p>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col text-center">
+            <table class="table" id="animalListTable">
+                <thead>
                 <th>Type</th>
                 <th>Name</th>
                 <th>Sound</th>
-            </thead>
-            <tbody>
-                @foreach (var animal in Model)
-                {
-                    <tr>
-                        <td>@animal.Id</td>
-                        <td>@animal.GetType().Name</td>
-                        <td>@animal.Name</td>
-                        <td>@animal.Sound</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var animal in Model)
+                    {
+                        <tr>
+                            <td>@animal.GetType().Name</td>
+                            <td>@animal.Name</td>
+                            <td>@animal.Sound</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p>
+                AnimalMagic also runs a holiday scheme where we look after your beloved animals while you're unable to.
+                This could be while you're on holiday or have excited friends over.
+            </p>
+
+            <p>
+                If you would like AnimalMagic to look after your cat, dog or parrot, tell AnimalMagic about them by clicking on the
+                buttons below
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 mb-4">
+            <a class="btn btn-primary" asp-controller="Dogs" asp-action="Add">Add New Dog</a>
+            <a class="btn btn-primary" asp-controller="Cats" asp-action="Add">Add New Cat</a>
+            <a class="btn btn-primary" asp-controller="Parrots" asp-action="Add">Add New Parrot</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p>If you'd rather view the animals in an exportable format, for use with other data progams, why not download the data feed?</p>
+            <a class="btn btn-primary" asp-action="GetAnimals">Get JSON</a>
+        </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-12 mb-2">
-        <a class="btn btn-primary" asp-controller="Dogs" asp-action="Add">Add New Dog</a>
-        <a class="btn btn-primary" asp-controller="Cats" asp-action="Add">Add New Cat</a>
-        <a class="btn btn-primary" asp-controller="Parrots" asp-action="Add">Add New Parrot</a>
-    </div>
-</div>
+@section Scripts {
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-<div class="row">
-    <div class="col-12 mb-2">
-        <a class="btn btn-primary" asp-action="GetAnimals">Get JSON</a>
-    </div>
-</div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#animalListTable").DataTable();
+        });
+    </script>
+}

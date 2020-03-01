@@ -1,0 +1,15 @@
+{
+  "name": "animalmagic.web",
+  "version": "1.0.0",
+  "description": "Code test interview project as website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass wwwroot/sass/ -o wwwroot/css/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.13.1"
+  }
+}

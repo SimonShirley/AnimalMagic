@@ -6,6 +6,17 @@
 
 
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>Build</type>
+          <command>npm run sass</command>
+          <workingdir>${ProjectDir}</workingdir>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.2" />
   </ItemGroup>
@@ -22,5 +33,6 @@
     <Folder Include="Views\Dogs\" />
     <Folder Include="Views\Cats\" />
     <Folder Include="Views\Parrots\" />
+    <Folder Include="wwwroot\sass\" />
   </ItemGroup>
 </Project>

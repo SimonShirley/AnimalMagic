@@ -17,3 +17,6 @@ swapped out for a real database instance. By developing on a Mac, SQL Server isn
 - Add images
 
 - Swap onomatopoeic descriptions of sounds to actual sound recordings
+
+- Add microdata
+

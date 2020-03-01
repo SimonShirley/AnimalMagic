@@ -10,9 +10,10 @@
     <CustomCommands>
       <CustomCommands>
         <Command>
-          <type>Build</type>
+          <type>AfterBuild</type>
           <command>npm run sass</command>
           <workingdir>${ProjectDir}</workingdir>
+          <externalConsole>True</externalConsole>
         </Command>
       </CustomCommands>
     </CustomCommands>

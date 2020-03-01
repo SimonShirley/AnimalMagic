@@ -34,5 +34,14 @@
     <Folder Include="Views\Cats\" />
     <Folder Include="Views\Parrots\" />
     <Folder Include="wwwroot\sass\" />
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\img\AnimalMagicLogo.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\img\AnimalMagicLogo.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

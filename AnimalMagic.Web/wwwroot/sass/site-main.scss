@@ -1,4 +1,11 @@
 ﻿#pageHeaderImageContainer {
-    height: 200px;
-    background-color: green;
+    position: relative;
+}
+
+#siteLogo {
+    margin: 2rem 0;
+}
+
+.navbar {
+    background-color: #f1f1f1;
 }

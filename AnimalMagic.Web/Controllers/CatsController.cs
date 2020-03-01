@@ -33,6 +33,7 @@ namespace AnimalMagic.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                cat.Id = _animalManager.Animals.Max(a => a.Id) + 1;
                 _animalManager.Animals.Add(cat);
                 TempData["AnimalAdded"] = true;
                 return RedirectToAction(nameof(List));

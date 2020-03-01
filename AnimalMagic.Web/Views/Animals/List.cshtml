@@ -27,6 +27,7 @@
                     <th>Name</th>
                     <th>Sound</th>
                     <th></th>
+                    <th></th>
                 </thead>
                 <tbody>
                     @foreach (var animal in Model)
@@ -35,50 +36,62 @@
                             <td>@animal.GetType().Name</td>
                             <td>@animal.Name</td>
                             <td>@animal.Sound</td>
-                            <td>
-                                @switch (animal.GetType().Name)
-                                {
-                                    case "Cat":
+                            @switch (animal.GetType().Name)
+                            {
+                                case "Cat":
+                                    <td>
                                         <a asp-controller="Cats" asp-action="Edit" asp-route-id="@animal.Id">
                                             <button type="button" class="btn btn-default btn-sm">
                                                 <span class="glyphicon glyphicon-pencil"></span> Edit
                                             </button>
                                         </a>
+                                    </td>
+                                    <td>
                                         <form method="post" asp-controller="Cats" asp-action="Delete" class="deleteFormLink">
                                             <input type="hidden" name="Id" value="@animal.Id" />
                                             <button type="submit" class="btn btn-default btn-sm">
                                                 <span class="glyphicon glyphicon-trashcan"></span> Delete
                                             </button>
                                         </form>
-                                        break;
-                                    case "Dog":
+                                    </td>
+                                    break;
+
+                                case "Dog":
+                                    <td>
                                         <a asp-controller="Dogs" asp-action="Edit" asp-route-id="@animal.Id">
                                             <button type="button" class="btn btn-default btn-sm">
                                                 <span class="glyphicon glyphicon-pencil"></span> Edit
                                             </button>
                                         </a>
+                                    </td>
+                                    <td>
                                         <form method="post" asp-controller="Dogs" asp-action="Delete" class="deleteFormLink">
                                             <input type="hidden" name="Id" value="@animal.Id" />
                                             <button type="submit" class="btn btn-default btn-sm">
                                                 <span class="glyphicon glyphicon-trashcan"></span> Delete
                                             </button>
                                         </form>
-                                        break;
-                                    case "Parrot":
+                                    </td>
+                                    break;
+
+                                case "Parrot":
+                                    <td>
                                         <a asp-controller="Parrots" asp-action="Edit" asp-route-id="@animal.Id">
                                             <button type="button" class="btn btn-default btn-sm">
                                                 <span class="glyphicon glyphicon-pencil"></span> Edit
                                             </button>
                                         </a>
+                                    </td>
+                                    <td>
                                         <form method="post" asp-controller="Parrots" asp-action="Delete" class="deleteFormLink">
                                             <input type="hidden" name="Id" value="@animal.Id" />
                                             <button type="submit" class="btn btn-default btn-sm">
                                                 <span class="glyphicon glyphicon-trashcan"></span> Delete
                                             </button>
                                         </form>
-                                        break;
-                                 }
-                            </td>
+                                    </td>
+                                    break;
+                             }
                         </tr>
                     }
                 </tbody>

@@ -1,18 +1,14 @@
 ﻿@model IEnumerable<Cat>
 
 @{
-    bool catAdded = TempData["AnimalAdded"] == null ? false : (bool)TempData["AnimalAdded"];
-
-    if (catAdded)
+    if (TempData["SuccessMessage"] != null)
     {
-        <div class="alert alert-success" role="alert">New Cat Added</div>
+        <div class="alert alert-success" role="alert">@TempData["SuccessMessage"]</div>
     }
 
-    var errorMessage = TempData["ErrorMessage"];
-
-    if (errorMessage != null)
+    if (TempData["ErrorMessage"] != null)
     {
-        <div class="alert alert-danger" role="alert">@errorMessage</div>
+        <div class="alert alert-danger" role="alert">@TempData["ErrorMessage"]</div>
     }
 }
 

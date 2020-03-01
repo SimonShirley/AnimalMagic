@@ -1,18 +1,14 @@
 ﻿@model IEnumerable<Parrot>
 
 @{
-    bool parrotAdded = TempData["AnimalAdded"] == null ? false : (bool)TempData["AnimalAdded"];
-
-    if (parrotAdded)
+    if (TempData["SuccessMessage"] != null)
     {
-        <div class="alert alert-success" role="alert">New Parrot Added</div>
+        <div class="alert alert-success" role="alert">@TempData["SuccessMessage"]</div>
     }
 
-    var errorMessage = TempData["ErrorMessage"];
-
-    if (errorMessage != null)
+    if (TempData["ErrorMessage"] != null)
     {
-        <div class="alert alert-danger" role="alert">@errorMessage</div>
+        <div class="alert alert-danger" role="alert">@TempData["ErrorMessage"]</div>
     }
 }
 
@@ -20,11 +16,11 @@
     <div class="col text-center">
         <table class="table">
             <thead>
-                <th>Id</th>
-                <th>Type</th>
-                <th>Name</th>
-                <th>Claws</th>
-                <th>Sound</th>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Claws</th>
+            <th>Sound</th>
             </thead>
             <tbody>
                 @foreach (var parrot in Model)

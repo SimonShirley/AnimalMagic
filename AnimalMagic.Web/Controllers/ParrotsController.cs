@@ -35,7 +35,7 @@ namespace AnimalMagic.Web.Controllers
             {
                 parrot.Id = _animalManager.Animals.Max(a => a.Id) + 1;
                 _animalManager.Animals.Add(parrot);
-                TempData["AnimalAdded"] = true;
+                TempData["SuccessMessage"] = "Parrot Added";
                 return RedirectToAction(nameof(List));
             }
 
@@ -58,6 +58,8 @@ namespace AnimalMagic.Web.Controllers
                     currentParrot.Name = newParrot.Name;
                     currentParrot.Sound = newParrot.Sound;
                     currentParrot.Claws = newParrot.Claws;
+
+                    TempData["SuccessMessage"] = "Parrot Edited";
                 }
 
                 return RedirectToAction(nameof(List));
@@ -83,7 +85,10 @@ namespace AnimalMagic.Web.Controllers
         public IActionResult Delete(int id)
         {
             if (_animalManager.Animals.Single(a => a.Id == id) is Parrot parrot)
+            {
                 _animalManager.Animals.Remove(parrot);
+                TempData["SuccessMessage"] = "Parrot Deleted";
+            }
 
             return RedirectToAction(nameof(List));
         }
